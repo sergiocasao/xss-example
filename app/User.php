@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Like');
     }
+
+    public function iFollow(User $user)
+    {
+        return $this->friendships->where('follower_id', $user->id);
+    }
+
+    public function followMe(User $user)
+    {
+        return $user->friendships->where('user_id', $this->id);
+    }
 }

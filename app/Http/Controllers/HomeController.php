@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Status;
 use App\User;
+use App\Friendship;
 
 class HomeController extends Controller
 {
@@ -27,14 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $status = Status::find(50);
-        // $user = User::find(24);
-        //
-        // dd($status->isLikedBy($user));
-
         $data = [
             'user' => Auth::user(),
-            'statuses' => Status::orderBy('created_at', 'DESC')->get(),
+            'statuses' => Status::whereHas('user', function($query){
+                return $query->whereHas('followers', function($q){
+                    return $q->where('user_id', Auth::user()->id);
+                });
+            })->orWhereHas('user', function($query){
+                return $query->where('user_id', Auth::user()->id);
+            })->orderBy('created_at', 'DESC')->get(),
         ];
 
         return view('home', $data);
