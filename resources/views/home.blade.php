@@ -5,19 +5,25 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="background-color: white;">
 
-            {{-- <h2>Me siguen:</h2>
-            @foreach (Auth::user()->followers as $follower)
-                {{ $follower->user->name }} <br>
-                Seguido desde: {{ $follower->created_at->diffForHumans() }} <br><br>
-            @endforeach
-
-            <h2>Yo sigo:</h2>
-            @foreach (Auth::user()->friendships as $friendship)
-                {{ $friendship->follower->name }} <br>
-                Seguido desde: {{ $friendship->created_at->diffForHumans() }} <br><br>
-            @endforeach --}}
-
             <br>
+
+            <h2>Follow me:</h2>
+            @forelse (Auth::user()->followers as $follower)
+                {{ $follower->user->name }} <br>
+                Followe me since: {{ $follower->created_at->diffForHumans() }} <br><br>
+            @empty
+
+            @endforelse
+
+            <h2>Follow:</h2>
+            @forelse (Auth::user()->friendships as $friendship)
+                {{ $friendship->follower->name }} <br>
+                Followed since: {{ $friendship->created_at->diffForHumans() }} <br><br>
+            @empty
+                You are not currently following anybody
+            @endforelse
+
+            <br><br><br>
 
             <div class="clearfix">
 
@@ -49,11 +55,15 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">{{ $status->user->name }} <small>{{ $status->created_at->diffForHumans() }}</small></h4>
-                            {!! $status->description !!} <br>
+                            {{-- {!! $status->description !!} <br> --}}
+                            <p>
+                                @php echo $status->description @endphp
+                            </p>
+                            <br>
                             @if ($status->isLikedBy(Auth::user()))
                                 {{ $status->likes->count() }} <i class="fa fa-heart" style="color: red;" aria-hidden="true"></i> <br>
                             @else
-                                <form class="" action="{{ route('love', $status->id) }}" method="post">
+                                <form class="loveform" action="{{ route('love', $status->id) }}" method="post">
                                     {{ $status->likes->count() }}
                                     {{ csrf_field() }}
                                     <button type="submit" class="btn btn-default" name="button"><i class="fa fa-heart" aria-hidden="true"></i></button>
@@ -77,14 +87,16 @@
                                             <small>Friends since {{ Auth::user()->friendships->where('follower_id', $comment->user->id)->first()->created_at->diffForHumans() }} </small><br>
                                         @else
                                             @if (Auth::user()->id != $comment->user->id)
-                                                <form class="" action="{{ route('follow') }}" method="post">
+                                                <form class="followform" action="{{ route('follow') }}" method="post">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="follower" value="{{ $comment->user->id }}">
                                                     <button type="submit" class="btn btn-link">Follow</button>
                                                 </form>
                                             @endif
                                         @endif
-                                        {!! $comment->comment !!}
+                                        <p>
+                                            @php echo $comment->comment @endphp
+                                        </p>
                                     </div>
                                 </div>
                             @endforeach
