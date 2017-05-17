@@ -71,11 +71,11 @@
                         @endif
                     </ul>
 
-                    <form class="navbar-form navbar-right" role="search">
+                    <form class="navbar-form navbar-right" role="search" method="get" action="{{ route('search') }}" id="search">
                       <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="q" class="form-control" form="search" placeholder="Search">
                       </div>
-                      <button type="submit" class="btn btn-default">Buscar</button>
+                      <button type="submit" class="btn btn-default" form="search">Buscar</button>
                     </form>
                 </div>
             </div>
