@@ -46,14 +46,16 @@ class HomeController extends Controller
     {
         $input = $request->all();
 
+        $query = isset($input['q']) ? $input['q'] : '';
+
         $search = User::where([
-            ['name', 'like', '%'.$input['q'].'%'],
+            ['name', 'like', '%'.$query.'%'],
             ['id', '<>', Auth::user()->id ],
         ])->get();
 
         $data = [
             'results' => $search,
-            'query' => $input['q'],
+            'query' => $query,
         ];
 
         return view('search', $data);
