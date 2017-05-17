@@ -7,7 +7,7 @@
             <div class="alert alert-danger" role="alert">
                 Lamentamos los inconvenientes, hace poco notamos un acceso
                 sospechoso a tu cuenta y se cerraron la sesiones en todos tus
-                dispositivos, inicia sesión de nuevo para volver a xxs-example.
+                dispositivos, inicia sesión de nuevo para volver a xss-example.
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
