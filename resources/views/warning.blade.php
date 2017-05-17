@@ -4,12 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" role="alert">
+                Lamentamos los inconvenientes, hace poco notamos un acceso
+                sospechoso a tu cuenta y se cerraron la sesiones en todos tus
+                dispositivos, inicia sesión de nuevo para volver a xxs-example.
+            </div>
             <div class="panel panel-default">
-                <div class="alert alert-danger" role="alert">
-                    Lamentamos los inconvenientes, hace poco notamos un acceso
-                    sospechoso a tu cuenta y se cerraron la sesiones en todos tus
-                    dispositivos, inicia sesión de nuevo para volver a xxs-example.
-                </div>
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
