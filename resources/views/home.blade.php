@@ -76,7 +76,7 @@
                                         @if (Auth::user()->iFollow($comment->user))
                                             <small>Friends since {{ Auth::user()->friendships->where('follower_id', $comment->user->id)->first()->created_at->diffForHumans() }} </small><br>
                                         @else
-                                            @if (Auth::user() != $comment->user)
+                                            @if (Auth::user()->id != $comment->user->id)
                                                 <form class="" action="{{ route('follow') }}" method="post">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="follower" value="{{ $comment->user->id }}">

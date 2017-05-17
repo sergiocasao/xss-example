@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function iFollow(User $user)
     {
-        if ($this == $user) {
+        if ($this->id == $user->id) {
             return false;
         }else {
             return $this->friendships->where('follower_id', $user->id)->count() == 1;
