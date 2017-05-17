@@ -62,6 +62,6 @@ class HomeController extends Controller
 
     public function cuidado()
     {
-        return view('auth.login');
+        return view('warning');
     }
 }
