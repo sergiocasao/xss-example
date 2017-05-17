@@ -41,4 +41,21 @@ class HomeController extends Controller
 
         return view('home', $data);
     }
+
+    public function search(Request $request)
+    {
+        $input = $request->all();
+
+        $search = User::where([
+            ['name', 'like', '%'.$input['q'].'%'],
+            ['id', '<>', Auth::user()->id ],
+        ])->get();
+
+        $data = [
+            'results' => $search,
+            'query' => $input['q'],
+        ];
+
+        return view('search', $data);
+    }
 }

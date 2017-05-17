@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/status', 'StatusController@store')->name('status.create');
 
-Route::get('/q', 'HomeController@search')->name('search');
+Route::get('/buscar', 'HomeController@search')->name('search');
