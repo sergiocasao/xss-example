@@ -29,6 +29,17 @@ class StatusController extends Controller
             'status_id' => isset($input['status_id']) ? $input['status_id'] : null,
         ]);
 
-        return redirect()->route('home');
+        return redirect()->back();
+    }
+
+    public function love(Request $request, Status $status)
+    {
+        $input = $request->all();
+
+        $status->likes()->create([
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect()->back();
     }
 }

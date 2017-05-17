@@ -19,9 +19,15 @@
                         <div class="media-body">
                             <h4 class="media-heading">{{ $user->name }} <small>member since {{ $user->created_at->diffForHumans() }}</small></h4>
                             @if (Auth::user()->iFollow($user))
-                                Friends since {{ Auth::user()->friendships->where('follower_id', $user->id)->first()->created_at->diffForHumans() }}
+                                <small>Friends since {{ Auth::user()->friendships->where('follower_id', $user->id)->first()->created_at->diffForHumans() }} </small><br>
                             @else
-                                <a href="#">Follow</a>
+                                @if (Auth::user() != $user)
+                                    <form class="" action="{{ route('follow') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="follower" value="{{ $user->id }}">
+                                        <button type="submit" class="btn btn-link">Follow</button>
+                                    </form>
+                                @endif
                             @endif
                         </div>
                     </li>

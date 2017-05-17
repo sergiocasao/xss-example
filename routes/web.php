@@ -22,3 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/status', 'StatusController@store')->name('status.create');
 
 Route::get('/search/{q?}', 'HomeController@search')->name('search');
+
+Route::post('/follow', 'UserController@follow')->name('follow');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'status/{status}'], function () {
+
+    Route::post('/love', 'StatusController@love')->name('love');
+
+    Route::post('/comment', 'CommentController@store')->name('status.comment.store');
+
+});

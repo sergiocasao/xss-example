@@ -9,7 +9,6 @@ use Laravel\Scout\Searchable;
 class User extends Authenticatable
 {
     use Notifiable;
-    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +50,11 @@ class User extends Authenticatable
 
     public function iFollow(User $user)
     {
-        return $this->friendships->where('follower_id', $user->id)->count() == 1;
+        if ($this == $user) {
+            return false;
+        }else {
+            return $this->friendships->where('follower_id', $user->id)->count() == 1;
+        }
     }
 
     public function followMe(User $user)

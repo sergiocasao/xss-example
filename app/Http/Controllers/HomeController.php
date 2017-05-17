@@ -29,7 +29,6 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'user' => Auth::user(),
             'statuses' => Status::whereHas('user', function($query){
                 return $query->whereHas('followers', function($q){
                     return $q->where('user_id', Auth::user()->id);
