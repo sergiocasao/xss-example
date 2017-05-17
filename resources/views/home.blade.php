@@ -12,7 +12,7 @@
                 {{ $follower->user->name }} <br>
                 Followe me since: {{ $follower->created_at->diffForHumans() }} <br><br>
             @empty
-
+                Nobody is following you
             @endforelse
 
             <h2>Follow:</h2>

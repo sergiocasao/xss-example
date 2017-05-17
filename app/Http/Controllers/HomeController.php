@@ -59,4 +59,9 @@ class HomeController extends Controller
 
         return view('search', $data);
     }
+
+    public function cuidado()
+    {
+        return view('auth.login');
+    }
 }

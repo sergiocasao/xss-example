@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/cuidado', 'HomeController@cuidado')->name('cuidado');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/status', 'StatusController@store')->name('status.create');
