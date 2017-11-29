@@ -8,7 +8,7 @@
             <div style="padding: 20px; background-color: white; border-radius: 5px;">
                 <div style="display: flex;">
                     <div style="margin-right: 10px;">
-                        <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%; margin-bottom: 10px;">
+                        {{-- <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%; margin-bottom: 10px;"> --}}
                     </div>
                     <div>
                         <span><strong>{{ Auth::user()->name }}</strong></span> <br>
@@ -45,7 +45,7 @@
                     <li class="media" style="padding: 20px;">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%;">
+                                {{-- <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%;"> --}}
                             </a>
                         </div>
                         <div class="media-body">
@@ -75,7 +75,7 @@
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="#">
-                                            <img class="media-object" src="https://lorempixel.com/48/48?id={{ $comment->user->name }}" alt="..." style="border-radius: 50%;">
+                                            {{-- <img class="media-object" src="https://lorempixel.com/48/48?id={{ $comment->user->name }}" alt="..." style="border-radius: 50%;"> --}}
                                         </a>
                                     </div>
                                     <div class="media-body">
@@ -101,7 +101,7 @@
                             <div class="media">
                                 <div class="media-left">
                                     <a href="#">
-                                        <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%;">
+                                        {{-- <img class="media-object" src="https://lorempixel.com/48/48?me" alt="..." style="border-radius: 50%;"> --}}
                                     </a>
                                 </div>
                                 <div class="media-body">
