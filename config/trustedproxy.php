@@ -63,9 +63,9 @@ return [
      */
     'headers' => [
         (defined('Illuminate\Http\Request::HEADER_FORWARDED') ? Illuminate\Http\Request::HEADER_FORWARDED : 'forwarded') => 'FORWARDED',
-        Illuminate\Http\Request::HEADER_CLIENT_IP    => 'X-Forwarded-For', // X-Forwarded-For
-        Illuminate\Http\Request::HEADER_CLIENT_HOST  => 'X-Forwarded-Host', // X-Forwarded-Port
-        Illuminate\Http\Request::HEADER_CLIENT_PROTO => 'X-Forwarded-Proto', // X-Forwarded-Host
-        Illuminate\Http\Request::HEADER_CLIENT_PORT  => 'X-Forwarded-Port', // X-Forwarded-Proto
+        Illuminate\Http\Request::HEADER_CLIENT_IP    => 'X_FORWARDED_FOR', // X-Forwarded-For
+        Illuminate\Http\Request::HEADER_CLIENT_HOST  => 'X_FORWARDED_HOST', // X-Forwarded-Port
+        Illuminate\Http\Request::HEADER_CLIENT_PROTO => 'X_FORWARDED_PROTO', // X-Forwarded-Host
+        Illuminate\Http\Request::HEADER_CLIENT_PORT  => 'X_FORWARDED_PORT', // X-Forwarded-Proto
     ]
 ];
