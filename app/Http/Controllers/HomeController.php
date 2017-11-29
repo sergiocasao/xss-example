@@ -28,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (is_null(Auth::user())) {
+            return view('welcome');
+        }
+        
         $data = [
             'statuses' => Status::whereHas('user', function($query){
                 return $query->whereHas('followers', function($q){
