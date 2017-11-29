@@ -22,8 +22,8 @@
 
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+    <div id="app" style="background-color: #F5F8FA; padding-top: 56px;">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #3F51B5; color: white;">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,7 +36,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="color: white;">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -51,11 +51,11 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}" style="color: white;">Iniciar sesión</a></li>
+                            <li><a href="{{ route('register') }}" style="color: white;">Regístrate</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" style="color: white;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -64,7 +64,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -78,7 +78,7 @@
 
                     <form class="navbar-form navbar-right" role="search" method="get" action="{{ route('search') }}" id="search">
                       <div class="form-group">
-                        <input type="text" name="q" class="form-control" form="search" placeholder="Search">
+                        <input type="text" name="q" class="form-control" form="search" placeholder="Buscar...">
                       </div>
                       <button type="submit" class="btn btn-default" form="search">Buscar</button>
                     </form>
