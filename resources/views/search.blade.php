@@ -16,7 +16,7 @@
                     <li class="media">
                         <div class="media-left">
                             <a href="#">
-                                <img class="media-object" src="http://lorempixel.com/48/48?id={{ rand(0, 1000) }}" alt="..." style="border-radius: 50%;">
+                                <img class="media-object" src="https://lorempixel.com/48/48?id={{ rand(0, 1000) }}" alt="..." style="border-radius: 50%;">
                             </a>
                         </div>
                         <div class="media-body">
